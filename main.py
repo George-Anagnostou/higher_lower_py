@@ -8,17 +8,14 @@ top = int(input("Enter the range you want to guess in (larger numbers are more d
 # get "answer" number
 num = random.randint(0,top)
 
-## debugging
-print(num)
-
 print("Try to guess a number between and including 0 and " + str(top))
 
-def ask_guess():
-    guess = int(input("Enter your number: "))
-    return guess
 
-ask_guess()
-print(guess)
+def get_guess():
+    global guess
+    guess = int(input("Enter a number: "))
+
+get_guess()
 
 while guess != num:
     if guess > num:
@@ -27,7 +24,7 @@ while guess != num:
         print("Too low!")
     else:
         print("I don't know what happened")
+    get_guess()
     print(guess)
-    ask_guess()
 
 print("You won!")
